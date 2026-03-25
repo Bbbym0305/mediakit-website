@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- Utility page – open once in browser to download placeholder images -->
+<html><body>
+<script>
+const projects = [
+  { name: "project-bridge",     label: "Brug",          color: "#1a4fa0" },
+  { name: "project-industrial", label: "Industrie",     color: "#163d80" },
+  { name: "project-agriculture",label: "Agrarisch",     color: "#2e7d32" },
+  { name: "project-playground", label: "Recreatie",     color: "#e65100" },
+  { name: "project-guardrail",  label: "Vangrail",      color: "#37474f" },
+  { name: "project-windturbine",label: "Windturbine",   color: "#00695c" },
+  { name: "project-stadium",    label: "Stadion",       color: "#4a148c" },
+  { name: "project-shelving",   label: "Stellingen",    color: "#bf360c" },
+  { name: "project-harbour",    label: "Haven",         color: "#01579b" },
+];
+
+projects.forEach(p => {
+  const canvas = document.createElement("canvas");
+  canvas.width = 800; canvas.height = 600;
+  const ctx = canvas.getContext("2d");
+
+  // Background
+  ctx.fillStyle = p.color;
+  ctx.fillRect(0, 0, 800, 600);
+
+  // Pattern
+  ctx.strokeStyle = "rgba(255,255,255,0.08)";
+  ctx.lineWidth = 2;
+  for (let x = 0; x < 800; x += 40) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 600); ctx.stroke();
+  }
+  for (let y = 0; y < 600; y += 40) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(800, y); ctx.stroke();
+  }
+
+  // Label
+  ctx.fillStyle = "rgba(255,255,255,0.9)";
+  ctx.font = "bold 64px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(p.label, 400, 280);
+
+  ctx.fillStyle = "rgba(255,255,255,0.4)";
+  ctx.font = "20px Arial";
+  ctx.fillText("GALVANISEREN", 400, 360);
+
+  // Download
+  const a = document.createElement("a");
+  a.download = p.name + ".jpg";
+  a.href = canvas.toDataURL("image/jpeg", 0.85);
+  a.click();
+});
+</script>
+<p>Images are being downloaded… Close this tab when done, then put the downloaded images in the <strong>images/</strong> folder.</p>
+</body></html>

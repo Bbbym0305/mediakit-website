@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projecten — MediaKit Galvaniseren</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <div class="logo-box">
+          <span class="logo-line">MEDIA</span>
+          <span class="logo-line">KIT</span>
+          <span class="logo-line logo-sub">GALV</span>
+        </div>
+      </a>
+
+      <nav class="header-nav">
+        <button class="icon-btn search-btn" aria-label="Zoeken">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+
+        <div class="lang-flags">
+          <button class="flag active" data-lang="nl" title="Nederlands">NL</button>
+          <button class="flag" data-lang="en" title="English">EN</button>
+          <button class="flag" data-lang="fr" title="Français">FR</button>
+        </div>
+
+        <a href="#contact" class="cta-btn">AANMELDEN</a>
+
+        <button class="icon-btn menu-btn" aria-label="Menu" id="menuToggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Projecten</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">Over ons</a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-label">PROJECT</p>
+        <h1 class="hero-watermark">OVERZICHT</h1>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="filter-bar">
+        <p class="filter-label">FILTER PROJECTEN</p>
+        <div class="filter-selects">
+          <select id="filterCategory" class="filter-select">
+            <option value="">Sector</option>
+          </select>
+          <select id="filterSubject" class="filter-select">
+            <option value="">Onderwerp</option>
+          </select>
+          <select id="filterRegion" class="filter-select">
+            <option value="">Regio</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECT GRID ===== -->
+  <main class="projects-section">
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Cards injected by script.js -->
+    </div>
+    <p class="no-results" id="noResults" style="display:none;">
+      Geen projecten gevonden voor deze filters.
+    </p>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-line">MEDIA</span>
+        <span class="logo-line">KIT</span>
+        <span class="logo-line logo-sub">GALV</span>
+      </div>
+      <div class="footer-info">
+        <p>© <span id="year"></span> MediaKit Galvaniseren. Alle rechten voorbehouden.</p>
+        <p>Voor vragen: <a href="mailto:info@mediakit.nl">info@mediakit.nl</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
