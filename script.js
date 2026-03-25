@@ -26,13 +26,18 @@ function buildCard(project) {
   card.dataset.subject  = project.subject;
   card.dataset.region   = project.region;
 
+  // Build the correct href: if project has a detail page use project.html?slug=xxx
+  const href = (project.link && project.link !== "#")
+    ? `${project.link}?slug=${project.slug}`
+    : "#";
+
   const imgTag = project.image
     ? `<img src="${project.image}" alt="${project.title}" loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
     : "";
 
   card.innerHTML = `
-    <a href="${project.link || '#'}" class="card-image-wrap" aria-label="${project.title}">
+    <a href="${href}" class="card-image-wrap" aria-label="${project.title}">
       ${imgTag}
       <div class="img-placeholder" style="${project.image ? 'display:none' : ''}">
         <svg width="40" height="40" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +53,7 @@ function buildCard(project) {
       <p class="card-category">${project.category}</p>
       <h2 class="card-title">${project.title}</h2>
       <p class="card-subtitle">${project.subtitle}</p>
-      <a href="${project.link || '#'}" class="card-link">Lees meer</a>
+      <a href="${href}" class="card-link">${href === "#" ? "Binnenkort meer" : "Lees meer"}</a>
     </div>
   `;
   return card;
