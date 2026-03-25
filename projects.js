@@ -36,7 +36,7 @@ const REGIONS = [
 
 const PROJECTS = [
   {
-    title: "STALEN BRUGGENDEK AMSTERDAM",
+    title: "STALEN BRUGGENDEK Veldhoven De Run",
     subtitle: "Langdurige bescherming voor stedelijke infrastructuur",
     category: "Infrastructuur",
     subject: "Constructie",
