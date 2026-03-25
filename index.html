@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projecten — MediaKit Galvaniseren</title>
+  <title>Projecten — Centrum voor Verduurzamen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,11 +14,19 @@
   <!-- ===== HEADER ===== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo-link">
-        <div class="logo-box">
-          <span class="logo-line">MEDIA</span>
-          <span class="logo-line">KIT</span>
-          <span class="logo-line logo-sub">GALV</span>
+
+      <a href="index.html" class="logo-link" aria-label="Centrum voor Verduurzamen">
+        <div class="logo-emblem">
+          <svg width="50" height="50" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="26" cy="26" r="25" fill="#2C3448" stroke="#444c60" stroke-width="1"/>
+            <circle cx="26" cy="14" r="7" fill="#E00113"/>
+            <circle cx="15" cy="33" r="7" fill="#F5C400"/>
+            <circle cx="37" cy="33" r="7" fill="#008A3A"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Centrum voor Verduurzamen</span>
+          <span class="logo-tagline">De specialiteit van 1. De kracht van 3.</span>
         </div>
       </a>
 
@@ -26,15 +37,7 @@
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </button>
-
-        <div class="lang-flags">
-          <button class="flag active" data-lang="nl" title="Nederlands">NL</button>
-          <button class="flag" data-lang="en" title="English">EN</button>
-          <button class="flag" data-lang="fr" title="Français">FR</button>
-        </div>
-
-        <a href="#contact" class="cta-btn">AANMELDEN</a>
-
+        <a href="https://centrumvoorverduurzamen.nl/" target="_blank" class="cta-btn">OFFERTE AANVRAGEN</a>
         <button class="icon-btn menu-btn" aria-label="Menu" id="menuToggle">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -46,13 +49,23 @@
       </nav>
     </div>
 
-    <!-- Mobile menu drawer -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="index.html">Projecten</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">Over ons</a>
+      <a href="https://centrumvoorverduurzamen.nl/bewerkingen/" target="_blank">Bewerkingen</a>
+      <a href="https://centrumvoorverduurzamen.nl/onze-bedrijven/" target="_blank">Onze bedrijven</a>
+      <a href="https://centrumvoorverduurzamen.nl/duurzaamheid/" target="_blank">Duurzaamheid</a>
+      <a href="https://centrumvoorverduurzamen.nl/contact/" target="_blank">Contact</a>
     </div>
   </header>
+
+  <!-- ===== THREE COMPANIES BAR ===== -->
+  <div class="companies-bar">
+    <div class="companies-inner">
+      <a class="company-pill yellow" href="https://centrumvoorverduurzamen.nl/onze-bedrijven/verzinkerij-meerveldhoven/" target="_blank">Verzinkerij Meerveldhoven</a>
+      <a class="company-pill green"  href="https://centrumvoorverduurzamen.nl/onze-bedrijven/de-run-metaalcoating/" target="_blank">De Run Metaalcoating</a>
+      <a class="company-pill red"    href="https://centrumvoorverduurzamen.nl/onze-bedrijven/dameco-plating/" target="_blank">Dameco Plating</a>
+    </div>
+  </div>
 
   <!-- ===== HERO ===== -->
   <section class="hero">
@@ -61,20 +74,12 @@
         <p class="hero-label">PROJECT</p>
         <h1 class="hero-watermark">OVERZICHT</h1>
       </div>
-
-      <!-- Filter bar -->
       <div class="filter-bar">
         <p class="filter-label">FILTER PROJECTEN</p>
         <div class="filter-selects">
-          <select id="filterCategory" class="filter-select">
-            <option value="">Sector</option>
-          </select>
-          <select id="filterSubject" class="filter-select">
-            <option value="">Onderwerp</option>
-          </select>
-          <select id="filterRegion" class="filter-select">
-            <option value="">Regio</option>
-          </select>
+          <select id="filterCategory" class="filter-select"><option value="">Sector</option></select>
+          <select id="filterSubject"  class="filter-select"><option value="">Bewerking</option></select>
+          <select id="filterRegion"   class="filter-select"><option value="">Regio</option></select>
         </div>
       </div>
     </div>
@@ -82,25 +87,79 @@
 
   <!-- ===== PROJECT GRID ===== -->
   <main class="projects-section">
-    <div class="projects-grid" id="projectsGrid">
-      <!-- Cards injected by script.js -->
-    </div>
-    <p class="no-results" id="noResults" style="display:none;">
-      Geen projecten gevonden voor deze filters.
-    </p>
+    <div class="projects-grid" id="projectsGrid"></div>
+    <p class="no-results" id="noResults" style="display:none;">Geen projecten gevonden voor deze filters.</p>
   </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer" id="contact">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="logo-line">MEDIA</span>
-        <span class="logo-line">KIT</span>
-        <span class="logo-line logo-sub">GALV</span>
+    <div class="footer-top">
+      <div class="footer-logo-block">
+        <svg width="60" height="60" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="26" cy="26" r="25" fill="#3a4560" stroke="#505878" stroke-width="1"/>
+          <circle cx="26" cy="14" r="7" fill="#E00113"/>
+          <circle cx="15" cy="33" r="7" fill="#F5C400"/>
+          <circle cx="37" cy="33" r="7" fill="#008A3A"/>
+        </svg>
+        <div>
+          <p class="footer-company-name">Centrum voor Verduurzamen</p>
+          <p class="footer-tagline">De specialiteit van 1. De kracht van 3.</p>
+          <span class="footer-badge">DAT ZIE JE</span>
+        </div>
       </div>
-      <div class="footer-info">
-        <p>© <span id="year"></span> MediaKit Galvaniseren. Alle rechten voorbehouden.</p>
-        <p>Voor vragen: <a href="mailto:info@mediakit.nl">info@mediakit.nl</a></p>
+
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4 class="footer-col-title yellow">Verzinkerij Meerveldhoven</h4>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/thermisch-verzinken/" target="_blank">Thermisch verzinken</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/centrifugaal-verzinken/" target="_blank">Centrifugaal verzinken</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/hoge-temperatuur-verzinken/" target="_blank">Hoge temperatuur verzinken</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/hydroclear-passiveren/" target="_blank">Hydroclear passiveren</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title green">De Run Metaalcoating</h4>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/poedercoaten/" target="_blank">Poedercoaten</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/natlakken/" target="_blank">Natlakken</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/brandwerend-coaten/" target="_blank">Brandwerend coaten</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/glasparelstralen/" target="_blank">Glasparelstralen</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/schooperen/" target="_blank">Schooperen/metalliseren</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/stralen/" target="_blank">Stralen</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title red">Dameco Plating</h4>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/elektrolytisch-verzinken/" target="_blank">Elektrolytisch verzinken</a>
+          <a href="https://centrumvoorverduurzamen.nl/bewerkingen/beitsen-rvs-inox/" target="_blank">Beitsen van RVS/INOX</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-title white">Overig</h4>
+          <a href="https://centrumvoorverduurzamen.nl/actueel/" target="_blank">Actueel</a>
+          <a href="https://centrumvoorverduurzamen.nl/vacatures/" target="_blank">Vacatures</a>
+          <a href="https://centrumvoorverduurzamen.nl/duurzaamheid/" target="_blank">Duurzaamheid</a>
+          <a href="https://centrumvoorverduurzamen.nl/downloads/" target="_blank">Downloads</a>
+          <a href="https://centrumvoorverduurzamen.nl/transport/" target="_blank">Transport</a>
+          <a href="https://centrumvoorverduurzamen.nl/reviews/" target="_blank">Reviews</a>
+          <a href="https://centrumvoorverduurzamen.nl/contact/" target="_blank">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <span>© <span id="year"></span> Centrum voor Verduurzamen</span>
+        <a href="https://centrumvoorverduurzamen.nl/privacy-policy/" target="_blank">Privacy Policy</a>
+        <a href="https://centrumvoorverduurzamen.nl/cookie-policy/" target="_blank">Cookie Policy</a>
+        <a href="https://centrumvoorverduurzamen.nl/disclaimer/" target="_blank">Disclaimer</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/centrumvoorverduurzamen/" target="_blank" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/centrumvoorverduurzamen/" target="_blank" aria-label="Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/centrum-voor-verduurzamen/" target="_blank" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
       </div>
     </div>
   </footer>
